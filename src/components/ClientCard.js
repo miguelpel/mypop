@@ -3,6 +3,7 @@ import React from 'react'
 const ClientCard = (props) => {
     const {timestamps, address, email, selections} = props.dataSet
     const created = new Date(timestamps.created)
+    const paid = new Date(timestamps.paid)
     const productTypes = []
     selections.forEach(selection => {
         const { sources } = selection;
@@ -13,7 +14,10 @@ const ClientCard = (props) => {
     return(
         <div className="card" >
         <div className="card_header">
-            <p>Command created: {created.toLocaleString()}</p>
+            <div>
+                <p>Command created: {created.toLocaleString()}</p>
+                <p>Paid: {paid.toLocaleString()}</p>
+            </div>
             <div className="client_details">
                 <p>Client: {`${address.firstname} ${address.lastname}`}</p>
                 <p>E-mail: {email}</p>
