@@ -7,14 +7,18 @@ const ClientCard = (props) => {
     selections.forEach(selection => {
         const { sources } = selection;
         sources.forEach((source, idx) => {
-            productTypes.push(<p key={idx}>{source.type}</p>)
+            productTypes.push(<p key={idx}>- {source.type}</p>)
         })
     })
     return(
         <div className="card" >
+        <div className="card_header">
             <p>Command created: {created.toLocaleString()}</p>
-            <p>Client full name: {`${address.firstname} ${address.lastname}`}</p>
-            <p>E-mail: {email}</p>
+            <div className="client_details">
+                <p>Client: {`${address.firstname} ${address.lastname}`}</p>
+                <p>E-mail: {email}</p>
+            </div>
+        </div>
             <div>Products Type: {[...productTypes]}</div>
             <br/>
         </div>
